@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отслеживание грузов</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="page-header mt-5">
+        <h1 class="header-head text-center">Отслеживание грузов</h1>
+    </header>
+    <main class="container">
+        <!-- Форма добавления нового груза -->
+        <section class="card mb-4">
+            <h2 class="card-head">Добавить новый груз</h2>
+            <div class="card-body">
+                <form id="addCargoForm">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="cargoName" class="form-label">Название груза</label>
+                            <input type="text" id="cargoName" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="departureDate" class="form-label">Дата отправления</label>
+                            <input type="date" id="departureDate" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="origin" class="form-label">Пункт отправления</label>
+                            <select id="origin" class="form-select" required>
+                                <option value="">Выберите город</option>
+                                <option>Москва</option>
+                                <option>Санкт-Петербург</option>
+                                <option>Владивосток</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="destination" class="form-label">Пункт назначения</label>
+                            <select id="destination" class="form-select" required>
+                                <option value="">Выберите город</option>
+                                <option>Казань</option>
+                                <option>Красноярск</option>
+                                <option>Нижний Новгород</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Добавить груз</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Фильтр -->
+        <h2 class="card-head">Фильтр</h2>
+        <select id="statusFilter" class="form-select">
+            <option value="">Все</option>
+            <option value="Ожидает отправки">Ожидает отправки</option>
+            <option value="В пути">В пути</option>
+            <option value="Доставлен">Доставлен</option>
+        </select>
+
+        <!-- Таблица грузов -->
+        <section class="card">
+            <h2 class="card-head">Список грузов</h2>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Номер</th>
+                                <th scope="col">Название</th>
+                                <th scope="col">Статус</th>
+                                <th scope="col">Откуда</th>
+                                <th scope="col">Куда</th>
+                                <th scope="col">Дата отправления</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cargoTable">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer class="page-footer mt-5">
+        <p class="footer-paragraph text-center">Здесь должен быть футер</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
